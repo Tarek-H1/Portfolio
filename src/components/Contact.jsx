@@ -24,8 +24,8 @@ function Contact() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     service_id: 'service_0q5lkgn',
-                    template_id: 'template_tj8q20o', // Replace with your EmailJS template ID
-                    user_id: 'hhlBXp_6la3nBqDn_', // Replace with your EmailJS public key
+                    template_id: 'template_tj8q20o', 
+                    user_id: 'hhlBXp_6la3nBqDn_', 
                     template_params: {
                         from_name: formData.name,
                         from_email: formData.email,
