@@ -11,7 +11,7 @@ function Achievements() {
     const [hackathonIndex, setHackathonIndex] = useState(0);
     const [graduationIndex, setGraduationIndex] = useState(0);
 
-    const graduationImages = [
+    const graduationPhotos = [
         '/Portfolio/photo/grad1.jpg',
         '/Portfolio/photo/grad2.jpg',
         '/Portfolio/photo/grad3.jpg',
@@ -21,7 +21,7 @@ function Achievements() {
         '/Portfolio/photo/grad7.jpg',
     ];
 
-    const hackathonImages = [
+    const hackathonPhotos = [
         '/Portfolio/photo/hack1.jpeg',
         '/Portfolio/photo/hack2.jpeg',
         '/Portfolio/photo/hack3.jpeg',
