@@ -146,7 +146,7 @@ function Hero() {
 
             {/* Scroll indicator */}
             <motion.div
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+                className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2"
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
             >
