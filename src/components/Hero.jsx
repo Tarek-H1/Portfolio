@@ -8,7 +8,7 @@ function Hero() {
             {/* Animated background gif */}
             <div className="absolute inset-0 overflow-hidden">
                 <img
-                    src="/photo/animation_1.gif"
+                    src="/Portfolio/photo/animation_1.gif"
                     alt=""
                     className="w-full h-full object-cover opacity-40"
                 />
@@ -43,7 +43,7 @@ function Hero() {
                             transition={{ duration: 0.3 }}
                         >
                             <img
-                                src="/photo/main.jpeg"
+                                src="/Portfolio/photo/main.jpeg"
                                 alt="M. Tarek Hamwi"
                                 className="w-full h-full object-cover"
                             />

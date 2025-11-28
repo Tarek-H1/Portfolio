@@ -34,7 +34,7 @@ function WelcomeScreen({ onComplete }) {
                     {/* Blurred animated background */}
                     <div className="absolute inset-0">
                         <img
-                            src="/photo/animation_2.gif"
+                            src="/Portfolio/photo/animation_2.gif"
                             alt=""
                             className="w-full h-full object-cover blur-sm"
                         />

@@ -11,23 +11,23 @@ function Achievements() {
     const [hackathonIndex, setHackathonIndex] = useState(0);
     const [graduationIndex, setGraduationIndex] = useState(0);
 
-    const graduationPhotos = [
-        '/photo/grad1.jpg',
-        '/photo/grad2.jpg',
-        '/photo/grad3.jpg',
-        '/photo/grad4.jpg',
-        '/photo/grad5.jpg',
-        '/photo/grad6.jpg',
-        '/photo/grad7.jpg',
+    const graduationImages = [
+        '/Portfolio/photo/grad1.jpg',
+        '/Portfolio/photo/grad2.jpg',
+        '/Portfolio/photo/grad3.jpg',
+        '/Portfolio/photo/grad4.jpg',
+        '/Portfolio/photo/grad5.jpg',
+        '/Portfolio/photo/grad6.jpg',
+        '/Portfolio/photo/grad7.jpg',
     ];
 
-    const hackathonPhotos = [
-        '/photo/hack1.jpeg',
-        '/photo/hack2.jpeg',
-        '/photo/hack3.jpeg',
-        '/photo/hack4.jpeg',
-        '/photo/hack5.jpeg',
-        '/photo/hack6.jpeg',
+    const hackathonImages = [
+        '/Portfolio/photo/hack1.jpeg',
+        '/Portfolio/photo/hack2.jpeg',
+        '/Portfolio/photo/hack3.jpeg',
+        '/Portfolio/photo/hack4.jpeg',
+        '/Portfolio/photo/hack5.jpeg',
+        '/Portfolio/photo/hack6.jpeg',
     ];
 
     // Auto-advance slideshow
