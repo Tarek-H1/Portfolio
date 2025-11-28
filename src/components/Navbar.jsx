@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -61,13 +62,45 @@ function Navbar() {
 
                     {/* Mobile menu button */}
                     <div className="md:hidden">
-                        <button className={scrolled ? 'text-gray-300' : 'text-white'}>
+                        <button
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            className={`${scrolled ? 'text-gray-300' : 'text-white'} focus:outline-none z-50 relative`}
+                        >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                {mobileMenuOpen ? (
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                ) : (
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                )}
                             </svg>
                         </button>
                     </div>
                 </div>
+
+                {/* Mobile menu */}
+                <motion.div
+                    initial={false}
+                    animate={mobileMenuOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="md:hidden overflow-hidden"
+                >
+                    <div className="pt-4 pb-6 space-y-4">
+                        {navItems.map((item, index) => (
+                            <Link
+                                key={index}
+                                to={item.to}
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={500}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="block text-gray-300 hover:text-blue-400 transition-colors duration-300 cursor-pointer py-2"
+                            >
+                                {item.name}
+                            </Link>
+                        ))}
+                    </div>
+                </motion.div>
             </div>
         </motion.nav>
     );
