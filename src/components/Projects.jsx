@@ -36,7 +36,7 @@ function Projects() {
         },
         {
             title: 'Personal Portfolio',
-            description: 'Responsive SPA with animated hero, project cards, and smooth Framer Motion / Three.js transitions. EmailJS contact form, downloadable resume, lazy-loaded images served from public/. CI/CD via GitHub Actions → GitHub Pages.',
+            description: 'Responsive SPA with animated hero, project cards, and smooth Framer Motion transitions. EmailJS contact form, downloadable resume, lazy-loaded images served from public/. CI/CD via GitHub Actions → GitHub Pages.',
             tech: ['React', 'Vite', 'Tailwind', 'Framer Motion', 'EmailJS'],
         },
     ];
