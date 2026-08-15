@@ -24,8 +24,8 @@ function Contact() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     service_id: 'service_0q5lkgn',
-                    template_id: 'template_tj8q20o', 
-                    user_id: 'hhlBXp_6la3nBqDn_', 
+                    template_id: 'template_tj8q20o',
+                    user_id: 'hhlBXp_6la3nBqDn_',
                     template_params: {
                         from_name: formData.name,
                         from_email: formData.email,
@@ -54,13 +54,13 @@ function Contact() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2,
+                staggerChildren: 0.15,
             },
         },
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
             y: 0,
@@ -69,30 +69,8 @@ function Contact() {
     };
 
     return (
-        <section id="contact" className="py-20 bg-gray-800 relative overflow-hidden">
-            {/* Animated background elements */}
-            <div className="absolute inset-0 overflow-hidden">
-                <motion.div
-                    className="absolute w-96 h-96 rounded-full bg-blue-500/10 blur-3xl"
-                    style={{ top: '10%', left: '10%' }}
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{ duration: 8, repeat: Infinity }}
-                />
-                <motion.div
-                    className="absolute w-96 h-96 rounded-full bg-purple-500/10 blur-3xl"
-                    style={{ bottom: '10%', right: '10%' }}
-                    animate={{
-                        scale: [1.2, 1, 1.2],
-                        opacity: [0.5, 0.3, 0.5],
-                    }}
-                    transition={{ duration: 8, repeat: Infinity }}
-                />
-            </div>
-
-            <div className="container mx-auto px-6 relative z-10">
+        <section id="contact" className="py-24 bg-slate-900">
+            <div className="container mx-auto px-6">
                 <motion.div
                     ref={ref}
                     variants={containerVariants}
@@ -101,28 +79,28 @@ function Contact() {
                 >
                     <motion.h2
                         variants={itemVariants}
-                        className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400"
+                        className="text-3xl md:text-4xl font-bold text-center mb-4 text-white"
                     >
                         Get In Touch
                     </motion.h2>
 
                     <motion.p
                         variants={itemVariants}
-                        className="text-center text-gray-400 text-lg mb-16 max-w-2xl mx-auto"
+                        className="text-center text-slate-400 text-lg mb-16 max-w-2xl mx-auto"
                     >
-                        Have a question or want to work together? Let's connect!
+                        Have a question or want to work together? Let's connect.
                     </motion.p>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
                         {/* Contact Form */}
                         <motion.div variants={itemVariants}>
                             <form
                                 onSubmit={handleSubmit}
-                                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8"
+                                className="bg-slate-950 border border-slate-800 rounded-2xl p-8"
                             >
                                 <div className="space-y-6">
                                     <div>
-                                        <label className="block text-gray-300 font-semibold mb-2">
+                                        <label className="block text-slate-300 font-medium mb-2 text-sm">
                                             Name
                                         </label>
                                         <input
@@ -131,13 +109,13 @@ function Contact() {
                                             value={formData.name}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                                            className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/40 transition-all"
                                             placeholder="Your name"
                                         />
                                     </div>
 
                                     <div>
-                                        <label className="block text-gray-300 font-semibold mb-2">
+                                        <label className="block text-slate-300 font-medium mb-2 text-sm">
                                             Email
                                         </label>
                                         <input
@@ -146,13 +124,13 @@ function Contact() {
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all"
+                                            className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/40 transition-all"
                                             placeholder="your.email@example.com"
                                         />
                                     </div>
 
                                     <div>
-                                        <label className="block text-gray-300 font-semibold mb-2">
+                                        <label className="block text-slate-300 font-medium mb-2 text-sm">
                                             Message
                                         </label>
                                         <textarea
@@ -161,147 +139,113 @@ function Contact() {
                                             onChange={handleChange}
                                             required
                                             rows="6"
-                                            className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all resize-none"
+                                            className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/40 transition-all resize-none"
                                             placeholder="Your message..."
                                         />
                                     </div>
 
-                                    <motion.button
+                                    <button
                                         type="submit"
                                         disabled={status === 'sending'}
-                                        className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-500 hover:to-purple-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                                        whileHover={{ scale: 1.02 }}
-                                        whileTap={{ scale: 0.98 }}
+                                        className="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         {status === 'sending'
                                             ? 'Sending...'
                                             : status === 'success'
-                                                ? '✓ Message Sent!'
+                                                ? 'Message Sent'
                                                 : status === 'error'
-                                                    ? '✗ Failed to Send'
+                                                    ? 'Failed to Send'
                                                     : 'Send Message'}
-                                    </motion.button>
+                                    </button>
                                 </div>
                             </form>
                         </motion.div>
 
                         {/* Contact Information */}
-                        <motion.div variants={itemVariants} className="space-y-6">
+                        <motion.div variants={itemVariants} className="space-y-4">
                             {/* Email */}
-                            <motion.a
+                            <a
                                 href="mailto:tareqhamwi2004@hotmail.com"
-                                className="group block bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-6 hover:border-blue-500/50 transition-all"
-                                whileHover={{ scale: 1.02, y: -4 }}
+                                className="group block bg-slate-950 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 transition-colors"
                             >
                                 <div className="flex items-center gap-4">
-                                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center flex-shrink-0">
-                                        <svg
-                                            className="w-7 h-7 text-white"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                            />
+                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center flex-shrink-0">
+                                        <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 className="text-gray-400 text-sm font-semibold mb-1">Email</h3>
-                                        <p className="text-white font-medium group-hover:text-blue-400 transition-colors">
+                                        <h3 className="text-slate-500 text-sm font-medium mb-1">Email</h3>
+                                        <p className="text-white font-medium group-hover:text-indigo-400 transition-colors">
                                             tareqhamwi2004@hotmail.com
                                         </p>
                                     </div>
                                 </div>
-                            </motion.a>
+                            </a>
 
                             {/* Phone */}
-                            <motion.a
-                                href="tel:+60115863241"
-                                className="group block bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-6 hover:border-green-500/50 transition-all"
-                                whileHover={{ scale: 1.02, y: -4 }}
+                            <a
+                                href="tel:+601158632412"
+                                className="group block bg-slate-950 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 transition-colors"
                             >
                                 <div className="flex items-center gap-4">
-                                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-600 to-emerald-500 flex items-center justify-center flex-shrink-0">
-                                        <svg
-                                            className="w-7 h-7 text-white"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                            />
+                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center flex-shrink-0">
+                                        <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 className="text-gray-400 text-sm font-semibold mb-1">Phone</h3>
-                                        <p className="text-white font-medium group-hover:text-green-400 transition-colors">
+                                        <h3 className="text-slate-500 text-sm font-medium mb-1">Phone</h3>
+                                        <p className="text-white font-medium group-hover:text-indigo-400 transition-colors">
                                             +60 11-5863 2412
                                         </p>
                                     </div>
                                 </div>
-                            </motion.a>
+                            </a>
 
                             {/* LinkedIn */}
-                            <motion.a
+                            <a
                                 href="https://www.linkedin.com/in/tarek-hamwi-113a17334"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group block bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-6 hover:border-blue-500/50 transition-all"
-                                whileHover={{ scale: 1.02, y: -4 }}
+                                className="group block bg-slate-950 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 transition-colors"
                             >
                                 <div className="flex items-center gap-4">
-                                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center flex-shrink-0">
-                                        <svg
-                                            className="w-7 h-7 text-white"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
+                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center flex-shrink-0">
+                                        <svg className="w-5 h-5 text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 className="text-gray-400 text-sm font-semibold mb-1">LinkedIn</h3>
-                                        <p className="text-white font-medium group-hover:text-blue-400 transition-colors">
+                                        <h3 className="text-slate-500 text-sm font-medium mb-1">LinkedIn</h3>
+                                        <p className="text-white font-medium group-hover:text-indigo-400 transition-colors">
                                             Tarek Hamwi
                                         </p>
                                     </div>
                                 </div>
-                            </motion.a>
+                            </a>
 
                             {/* GitHub */}
-                            <motion.a
+                            <a
                                 href="https://github.com/Tarek-H1"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group block bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-6 hover:border-purple-500/50 transition-all"
-                                whileHover={{ scale: 1.02, y: -4 }}
+                                className="group block bg-slate-950 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 transition-colors"
                             >
                                 <div className="flex items-center gap-4">
-                                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center flex-shrink-0">
-                                        <svg
-                                            className="w-7 h-7 text-white"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
+                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center flex-shrink-0">
+                                        <svg className="w-5 h-5 text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 className="text-gray-400 text-sm font-semibold mb-1">GitHub</h3>
-                                        <p className="text-white font-medium group-hover:text-purple-400 transition-colors">
+                                        <h3 className="text-slate-500 text-sm font-medium mb-1">GitHub</h3>
+                                        <p className="text-white font-medium group-hover:text-indigo-400 transition-colors">
                                             @Tarek-H1
                                         </p>
                                     </div>
                                 </div>
-                            </motion.a>
+                            </a>
                         </motion.div>
                     </div>
                 </motion.div>

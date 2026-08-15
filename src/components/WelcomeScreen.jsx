@@ -54,13 +54,11 @@ function WelcomeScreen({ onComplete }) {
 
                                 {/* Progress bar with gradient */}
                                 <motion.div
-                                    className="h-full relative overflow-hidden"
+                                    className="h-full relative overflow-hidden bg-indigo-500"
                                     initial={{ width: 0 }}
                                     animate={{ width: `${progress}%` }}
                                     transition={{ duration: 0.3, ease: "easeOut" }}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
-
                                     {/* Animated shine effect on progress bar */}
                                     <motion.div
                                         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
@@ -71,16 +69,14 @@ function WelcomeScreen({ onComplete }) {
                             </div>
                         </div>
 
-                        {/* Percentage with glow effect */}
+                        {/* Percentage */}
                         <motion.div
-                            className="text-5xl md:text-6xl font-bold mb-2"
+                            className="text-5xl md:text-6xl font-bold mb-2 text-white"
                             initial={{ opacity: 0, scale: 0.5 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5 }}
                         >
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
-                                {Math.floor(progress)}%
-                            </span>
+                            {Math.floor(progress)}%
                         </motion.div>
 
                         {/* Loading text */}

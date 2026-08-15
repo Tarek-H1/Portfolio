@@ -4,141 +4,84 @@ import { Link } from 'react-scroll';
 
 function Hero() {
     return (
-        <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-900">
-            {/* Animated background gif */}
-            <div className="absolute inset-0 overflow-hidden">
-                <img
-                    src="/Portfolio/photo/animation_1.gif"
-                    alt=""
-                    className="w-full h-full object-cover opacity-40"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-transparent to-gray-900/90" />
+        <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-slate-950">
+            {/* Subtle static background */}
+            <div className="absolute inset-0">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.12),_transparent_55%)]" />
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="flex flex-col md:flex-row items-center justify-center gap-12">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-14">
                     {/* Profile Image */}
                     <motion.div
-                        initial={{ scale: 0, rotate: -180 }}
-                        animate={{ scale: 1, rotate: 0 }}
-                        transition={{ duration: 1, type: "spring" }}
-                        className="relative"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.7 }}
+                        className="relative flex-shrink-0"
                     >
-                        {/* Multiple glowing rings */}
-                        <motion.div
-                            className="absolute inset-0 rounded-full"
-                            style={{
-                                boxShadow: '0 0 60px 20px rgba(59, 130, 246, 0.5)',
-                            }}
-                            animate={{
-                                scale: [1, 1.15, 1],
-                                opacity: [0.5, 0.8, 0.5]
-                            }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                        />
-
-                        <motion.div
-                            className="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-blue-400/30 shadow-2xl relative"
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.3 }}
-                        >
+                        <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border border-slate-700 shadow-xl">
                             <img
                                 src="/Portfolio/photo/main.jpeg"
                                 alt="M. Tarek Hamwi"
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent" />
-                        </motion.div>
-
-                        {/* Rotating decorative rings */}
-                        <motion.div
-                            className="absolute inset-0 rounded-full border-2 border-purple-400/30"
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                        />
-                        <motion.div
-                            className="absolute inset-0 rounded-full border-2 border-pink-400/20"
-                            animate={{ rotate: -360 }}
-                            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                        />
+                        </div>
                     </motion.div>
 
                     {/* Text Content */}
-                    <div className="text-center md:text-left text-white">
+                    <div className="text-center md:text-left text-white max-w-2xl">
                         <motion.div
-                            initial={{ opacity: 0, y: 50 }}
+                            initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3, duration: 0.8 }}
+                            transition={{ delay: 0.15, duration: 0.7 }}
                         >
-                            <motion.h1
-                                className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400"
-                                initial={{ opacity: 0, x: -50 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.5, duration: 0.8 }}
-                            >
-                                M. Tarek Hamwi
-                            </motion.h1>
+                            <p className="text-indigo-400 font-medium tracking-wide uppercase text-sm mb-3">
+                                Software Engineer
+                            </p>
 
-                            <motion.div
-                                initial={{ opacity: 0, x: -50 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.7, duration: 0.8 }}
-                                className="space-y-2 mb-6"
-                            >
-                                <p className="text-2xl md:text-3xl text-gray-200">
+                            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white">
+                                M. Tarek Hamwi
+                            </h1>
+
+                            <div className="space-y-1 mb-6">
+                                <p className="text-xl md:text-2xl text-slate-200 font-medium">
                                     Software Engineering Student
                                 </p>
-                                <p className="text-xl md:text-2xl text-gray-300">
-                                    Asia Pacific University
+                                <p className="text-base md:text-lg text-slate-400">
+                                    Asia Pacific University &middot; Scrum Master, R&amp;D Team
                                 </p>
-                            </motion.div>
+                            </div>
 
-                            <motion.p
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.9, duration: 0.8 }}
-                                className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed"
-                            >
-                                I’m passionate about building scalable systems and love the challenge of system design. With a strong focus on team leadership, I’m dedicated to creating innovative solutions that solve real-world problems and drive meaningful impact!
-                            </motion.p>                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 1.1, duration: 0.8 }}
-                                className="flex flex-wrap gap-4 justify-center md:justify-start"
-                            >
+                            <p className="text-base md:text-lg text-slate-400 mb-8 leading-relaxed">
+                                Software Engineering student with hands-on experience in R&amp;D, e-commerce, and
+                                industrial internship work spanning system design, mobile application migration, and
+                                web development. Recently migrated React Native TV applications to Amazon's Vega OS
+                                platform and built a production-grade UI kit at Kloudius Services. 2nd place winner,
+                                Joget NextGen Hackathon 2024.
+                            </p>
+
+                            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                                 <Link to="projects" smooth={true} duration={500} offset={-70}>
-                                    <motion.button
-                                        className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full shadow-lg"
-                                        whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(59, 130, 246, 0.6)" }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
+                                    <button className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-lg transition-colors">
                                         View Projects
-                                    </motion.button>
+                                    </button>
                                 </Link>
 
                                 <Link to="contact" smooth={true} duration={500} offset={-70}>
-                                    <motion.button
-                                        className="px-8 py-4 bg-transparent border-2 border-purple-400 text-white font-semibold rounded-full hover:bg-purple-400/20"
-                                        whileHover={{ scale: 1.05, borderColor: "#c084fc" }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
+                                    <button className="px-6 py-3 bg-transparent border border-slate-600 hover:border-indigo-400 text-white font-medium rounded-lg transition-colors">
                                         Contact Me
-                                    </motion.button>
+                                    </button>
                                 </Link>
 
                                 <a href="/Portfolio/M.Tarek Hamwi Resume.pdf" download="M.Tarek Hamwi Resume.pdf">
-                                    <motion.button
-                                        className="px-8 py-4 bg-transparent border-2 border-pink-400 text-white font-semibold rounded-full hover:bg-pink-400/20 flex items-center gap-2"
-                                        whileHover={{ scale: 1.05, borderColor: "#f472b6" }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <button className="px-6 py-3 bg-transparent border border-slate-600 hover:border-indigo-400 text-white font-medium rounded-lg transition-colors flex items-center gap-2">
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                         </svg>
                                         Download Resume
-                                    </motion.button>
+                                    </button>
                                 </a>
-                            </motion.div>
+                            </div>
                         </motion.div>
                     </div>
                 </div>
@@ -147,15 +90,15 @@ function Hero() {
             {/* Scroll indicator */}
             <motion.div
                 className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 1.8, repeat: Infinity }}
             >
                 <Link to="about" smooth={true} duration={500} offset={-70}>
-                    <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center cursor-pointer">
+                    <div className="w-6 h-10 border-2 border-slate-600 rounded-full flex justify-center cursor-pointer">
                         <motion.div
-                            className="w-2 h-2 bg-white rounded-full mt-2"
+                            className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2"
                             animate={{ y: [0, 12, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity }}
+                            transition={{ duration: 1.8, repeat: Infinity }}
                         />
                     </div>
                 </Link>

@@ -13,95 +13,88 @@ function About() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2,
+                staggerChildren: 0.15,
             },
         },
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 50 },
+        hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6 },
+            transition: { duration: 0.5 },
         },
     };
 
+    const stats = [
+        { value: '3', label: 'Professional Roles' },
+        { value: '8+', label: 'Projects Built' },
+        { value: '12+', label: 'Technologies' },
+    ];
+
     return (
-        <section id="about" className="py-20 bg-gray-900">
+        <section id="about" className="py-24 bg-slate-900">
             <div className="container mx-auto px-6">
                 <motion.div
                     ref={ref}
                     variants={containerVariants}
                     initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
+                    animate={inView ? 'visible' : 'hidden'}
                     className="max-w-4xl mx-auto"
                 >
                     <motion.h2
                         variants={itemVariants}
-                        className="text-4xl md:text-5xl font-bold text-center mb-12 text-white"
+                        className="text-3xl md:text-4xl font-bold text-center mb-12 text-white"
                     >
                         About Me
                     </motion.h2>
 
                     <motion.div
                         variants={itemVariants}
-                        className="bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12 border border-gray-700"
+                        className="bg-slate-950 rounded-2xl p-8 md:p-12 border border-slate-800"
                     >
                         <motion.p
                             variants={itemVariants}
-                            className="text-lg text-gray-300 leading-relaxed mb-6"
+                            className="text-lg text-slate-300 leading-relaxed mb-6"
                         >
-                            A dedicated <span className="text-blue-400 font-semibold">Software Engineering student</span> at
-                            Asia Pacific University, I achieved 2nd place in the Joget NextGen Hackathon 2024, where my team
-                            developed an innovative machinery management solution. Passionate about building scalable systems,
-                            I bring a strong track record in system design, and team leadership as a
-                            Scrum Master for the Integrated Info System project.
+                            I'm a <span className="text-indigo-400 font-semibold">Software Engineering student</span> at
+                            Asia Pacific University with experience across R&amp;D, e-commerce, and industrial
+                            internship work, where I've contributed to system design, mobile application migration,
+                            and web development.
                         </motion.p>
 
                         <motion.p
                             variants={itemVariants}
-                            className="text-lg text-gray-300 leading-relaxed mb-6"
+                            className="text-lg text-slate-300 leading-relaxed mb-6"
                         >
-                            I have served as <span className="text-blue-400 font-semibold">Scrum Master</span> for the Integrated Info System project at APU's Centre of Technology & Innovation, where I collaborated with cross-functional teams to ensure system scalability and efficiency. My expertise spans web development, database management, system design, and agile methodologies.
+                            During my internship at <span className="text-indigo-400 font-semibold">Kloudius Services</span>,
+                            I migrated React Native TV applications to Amazon's Vega OS platform and built a
+                            production-grade UI kit. I currently serve as{' '}
+                            <span className="text-indigo-400 font-semibold">Scrum Master</span> for APCentral, APU's
+                            Centre of Technology &amp; Innovation R&amp;D project, where I oversee project progress and
+                            facilitate team collaboration across cross-functional teams.
                         </motion.p>
 
                         <motion.p
                             variants={itemVariants}
-                            className="text-lg text-gray-300 leading-relaxed mb-8"
+                            className="text-lg text-slate-300 leading-relaxed mb-10"
                         >
-                            As <span className="text-blue-400 font-semibold">Valedictorian of my IGCSE class</span>, I bring
-                            both academic excellence and practical problem-solving skills to every project. I'm always eager
-                            to learn new technologies and collaborate on challenging projects that make a difference.
+                            I earned <span className="text-indigo-400 font-semibold">2nd place in the Joget NextGen
+                            Hackathon 2024</span> and bring the same drive to scalable system design, cross-platform
+                            development, and team collaboration in every project I take on.
                         </motion.p>
 
                         <motion.div
                             variants={itemVariants}
-                            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                            className="grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-slate-800 pt-8"
                         >
-                            <motion.div
-                                className="text-center p-6 bg-gray-700 rounded-xl border border-gray-600"
-                                whileHover={{ scale: 1.05, backgroundColor: "#374151" }}
-                            >
-                                <div className="text-4xl font-bold text-blue-400 mb-2">2+</div>
-                                <div className="text-gray-300">Years Coding</div>
-                            </motion.div>
-
-                            <motion.div
-                                className="text-center p-6 bg-gray-700 rounded-xl border border-gray-600"
-                                whileHover={{ scale: 1.05, backgroundColor: "#374151" }}
-                            >
-                                <div className="text-4xl font-bold text-purple-400 mb-2">6+</div>
-                                <div className="text-gray-300">Major Projects</div>
-                            </motion.div>
-
-                            <motion.div
-                                className="text-center p-6 bg-gray-700 rounded-xl border border-gray-600"
-                                whileHover={{ scale: 1.05, backgroundColor: "#374151" }}
-                            >
-                                <div className="text-4xl font-bold text-green-400 mb-2">8+</div>
-                                <div className="text-gray-300">Technologies</div>
-                            </motion.div>
+                            {stats.map((stat, index) => (
+                                <div key={index} className="text-center">
+                                    <div className="text-3xl font-bold text-indigo-400 mb-1">{stat.value}</div>
+                                    <div className="text-slate-400 text-sm">{stat.label}</div>
+                                </div>
+                            ))}
                         </motion.div>
                     </motion.div>
                 </motion.div>

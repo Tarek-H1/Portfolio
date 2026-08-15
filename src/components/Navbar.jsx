@@ -17,16 +17,17 @@ function Navbar() {
     const navItems = [
         { name: 'Home', to: 'hero' },
         { name: 'About', to: 'about' },
-        { name: 'Skills', to: 'skills' },
         { name: 'Experience', to: 'experience' },
+        { name: 'Education', to: 'education' },
+        { name: 'Skills', to: 'skills' },
         { name: 'Projects', to: 'projects' },
         { name: 'Achievements', to: 'achievements' },
-        { name: 'Contact', to: 'contact' }
+        { name: 'Contact', to: 'contact' },
     ];
 
     return (
         <motion.nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800' : 'bg-transparent'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/95 backdrop-blur-md border-b border-slate-800' : 'bg-transparent'
                 }`}
             initial={{ y: -100 }}
             animate={{ y: 0 }}
@@ -34,16 +35,14 @@ function Navbar() {
         >
             <div className="container mx-auto px-6 py-4">
                 <div className="flex justify-between items-center">
-                    <motion.button
+                    <button
                         onClick={() => window.location.reload()}
-                        className="text-2xl font-bold text-blue-400 cursor-pointer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        className="text-lg font-semibold tracking-wide text-white cursor-pointer"
                     >
                         M. TAREK HAMWI
-                    </motion.button>
+                    </button>
 
-                    <div className="hidden md:flex space-x-8">
+                    <div className="hidden md:flex items-center space-x-8">
                         {navItems.map((item, index) => (
                             <Link
                                 key={index}
@@ -52,8 +51,8 @@ function Navbar() {
                                 smooth={true}
                                 offset={-70}
                                 duration={500}
-                                className={`cursor-pointer transition-colors duration-300 ${scrolled ? 'text-gray-300 hover:text-blue-400' : 'text-white hover:text-blue-300'
-                                    }`}
+                                activeClass="text-indigo-400"
+                                className="text-sm font-medium cursor-pointer transition-colors duration-300 text-slate-300 hover:text-indigo-400"
                             >
                                 {item.name}
                             </Link>
@@ -64,7 +63,8 @@ function Navbar() {
                     <div className="md:hidden">
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className={`${scrolled ? 'text-gray-300' : 'text-white'} focus:outline-none z-50 relative`}
+                            className="text-slate-200 focus:outline-none z-50 relative"
+                            aria-label="Toggle menu"
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 {mobileMenuOpen ? (
@@ -84,7 +84,7 @@ function Navbar() {
                     transition={{ duration: 0.3 }}
                     className="md:hidden overflow-hidden"
                 >
-                    <div className="pt-4 pb-6 space-y-4">
+                    <div className="pt-4 pb-6 space-y-1 border-t border-slate-800 mt-4">
                         {navItems.map((item, index) => (
                             <Link
                                 key={index}
@@ -94,7 +94,7 @@ function Navbar() {
                                 offset={-70}
                                 duration={500}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="block text-gray-300 hover:text-blue-400 transition-colors duration-300 cursor-pointer py-2"
+                                className="block text-slate-300 hover:text-indigo-400 transition-colors duration-300 cursor-pointer py-2 text-sm font-medium"
                             >
                                 {item.name}
                             </Link>

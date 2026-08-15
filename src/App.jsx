@@ -3,8 +3,9 @@ import WelcomeScreen from './components/WelcomeScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Skills from './components/Skills';
 import WorkExperience from './components/WorkExperience';
+import Education from './components/Education';
+import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
@@ -22,8 +23,9 @@ function App() {
             <Navbar />
             <Hero />
             <About />
-            <Skills />
             <WorkExperience />
+            <Education />
+            <Skills />
             <Projects />
             <Achievements />
             <Contact />
