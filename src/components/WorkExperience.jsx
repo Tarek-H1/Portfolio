@@ -1,13 +1,58 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-function WorkExperience() {
+function ExperienceCard({ exp, index, alignRight, onVisibilityChange }) {
     const [ref, inView] = useInView({
-        triggerOnce: true,
-        threshold: 0.1,
+        threshold: 0.35,
     });
 
+    React.useEffect(() => {
+        onVisibilityChange(index, inView);
+    }, [inView, index, onVisibilityChange]);
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 40 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+            className={`relative w-full md:w-[54%] ${alignRight ? 'md:ml-auto' : 'md:mr-auto'}`}
+        >
+            <div className="relative bg-slate-900 rounded-2xl p-8 border border-slate-800">
+                {/* Node marker, centered on the card */}
+                <motion.div
+                    animate={{
+                        scale: inView ? 1 : 0.6,
+                        backgroundColor: inView ? '#6366f1' : '#0f172a',
+                    }}
+                    transition={{ duration: 0.6 }}
+                    className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-indigo-400 ring-4 ring-slate-950 ${alignRight ? '-left-2' : '-right-2'
+                        }`}
+                />
+
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <h3 className="text-xl font-bold text-white">{exp.title}</h3>
+                    <span className="text-sm font-medium text-indigo-400">{exp.period}</span>
+                </div>
+
+                <p className="text-slate-300 font-medium mb-1">{exp.company}</p>
+                {exp.location && <p className="text-slate-500 text-sm mb-4">{exp.location}</p>}
+
+                <ul className="space-y-2">
+                    {exp.achievements.map((achievement, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-slate-400 text-sm leading-relaxed">
+                            <span className="mt-2 w-1 h-1 rounded-full bg-slate-600 flex-shrink-0" />
+                            <span>{achievement}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </motion.div>
+    );
+}
+
+function WorkExperience() {
     const experiences = [
         {
             title: 'Software Engineering Intern (React Native & Amazon Vega OS)',
@@ -38,83 +83,62 @@ function WorkExperience() {
             location: 'Malaysia – Kota Bharu',
             period: '2022 – 2023',
             achievements: [
-                'Built and enhanced the company\'s online profile on Shopee and Lazada',
+                "Built and enhanced the company's online profile on Shopee and Lazada",
                 'Created targeted advertisements for Facebook and Instagram to boost brand visibility',
-                'Assisted in developing the company\'s website, gaining hands-on experience in web design',
+                "Assisted in developing the company's website, gaining hands-on experience in web design",
             ],
         },
     ];
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-            },
-        },
-    };
+    const [visible, setVisible] = useState(() => Array(experiences.length).fill(false));
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.5 },
-        },
-    };
+    const handleVisibilityChange = useCallback((index, inView) => {
+        setVisible((prev) => {
+            if (prev[index] === inView) return prev;
+            const next = [...prev];
+            next[index] = inView;
+            return next;
+        });
+    }, []);
+
+    const highestVisible = visible.reduce((max, v, i) => (v ? i : max), -1);
+    const fillFraction = experiences.length > 0 ? (highestVisible + 1) / experiences.length : 0;
 
     return (
         <section id="experience" className="py-24 bg-slate-950">
             <div className="container mx-auto px-6">
-                <motion.div
-                    ref={ref}
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate={inView ? 'visible' : 'hidden'}
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="text-3xl md:text-4xl font-bold text-center mb-16 text-white"
                 >
-                    <motion.h2
-                        variants={itemVariants}
-                        className="text-3xl md:text-4xl font-bold text-center mb-16 text-white"
-                    >
-                        Work Experience
-                    </motion.h2>
+                    Work Experience
+                </motion.h2>
 
-                    <div className="max-w-4xl mx-auto relative">
-                        {/* Timeline line */}
-                        <div className="hidden md:block absolute left-[7px] top-2 bottom-2 w-px bg-slate-800" />
+                <div className="max-w-4xl mx-auto relative">
+                    {/* Progress line */}
+                    <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px] rounded-full bg-slate-800" />
+                    <motion.div
+                        className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px] rounded-full bg-indigo-500 origin-top shadow-[0_0_12px_rgba(99,102,241,0.6)]"
+                        initial={{ scaleY: 0 }}
+                        animate={{ scaleY: fillFraction }}
+                        transition={{ duration: 1.4, ease: 'easeOut' }}
+                    />
 
-                        <div className="space-y-10">
-                            {experiences.map((exp, index) => (
-                                <motion.div key={index} variants={itemVariants} className="relative md:pl-12">
-                                    {/* Timeline dot */}
-                                    <div className="hidden md:block absolute left-0 top-2 w-4 h-4 rounded-full bg-slate-950 border-2 border-indigo-500" />
-
-                                    <div className="bg-slate-900 rounded-2xl p-8 border border-slate-800">
-                                        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                                            <h3 className="text-xl font-bold text-white">{exp.title}</h3>
-                                            <span className="text-sm font-medium text-indigo-400">{exp.period}</span>
-                                        </div>
-
-                                        <p className="text-slate-300 font-medium mb-1">{exp.company}</p>
-                                        {exp.location && (
-                                            <p className="text-slate-500 text-sm mb-4">{exp.location}</p>
-                                        )}
-
-                                        <ul className="space-y-2">
-                                            {exp.achievements.map((achievement, idx) => (
-                                                <li key={idx} className="flex items-start gap-3 text-slate-400 text-sm leading-relaxed">
-                                                    <span className="mt-2 w-1 h-1 rounded-full bg-slate-600 flex-shrink-0" />
-                                                    <span>{achievement}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
+                    <div className="relative space-y-10 md:space-y-16">
+                        {experiences.map((exp, index) => (
+                            <ExperienceCard
+                                key={index}
+                                exp={exp}
+                                index={index}
+                                alignRight={index % 2 !== 0}
+                                onVisibilityChange={handleVisibilityChange}
+                            />
+                        ))}
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

@@ -8,30 +8,46 @@ function About() {
         threshold: 0.2,
     });
 
+    const stats = [
+        { value: '3', label: 'Professional roles' },
+        { value: '8+', label: 'Projects built' },
+        { value: '12+', label: 'Technologies used' },
+    ];
+
+    const highlights = [
+        {
+            index: '01',
+            title: 'Leadership & R&D',
+            text: "I currently serve as Scrum Master for APCentral, APU's Centre of Technology & Innovation project, overseeing progress and facilitating collaboration across cross-functional teams.",
+        },
+        {
+            index: '02',
+            title: 'Internship at Kloudius Services',
+            text: "I migrated React Native TV applications to Amazon's Vega OS platform and built a production-grade UI kit — design tokens, component architecture, and validated media player integrations.",
+        },
+        {
+            index: '03',
+            title: 'Recognition',
+            text: "I earned 2nd place in the Joget NextGen Hackathon 2024, and graduated Valedictorian of my IGCSE class — a track record of academic excellence and hands-on delivery.",
+        },
+    ];
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: {
-                staggerChildren: 0.15,
-            },
+            transition: { staggerChildren: 0.12 },
         },
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 24 },
         visible: {
             opacity: 1,
             y: 0,
             transition: { duration: 0.5 },
         },
     };
-
-    const stats = [
-        { value: '3', label: 'Professional Roles' },
-        { value: '8+', label: 'Projects Built' },
-        { value: '12+', label: 'Technologies' },
-    ];
 
     return (
         <section id="about" className="py-24 bg-slate-900">
@@ -41,7 +57,7 @@ function About() {
                     variants={containerVariants}
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
-                    className="max-w-4xl mx-auto"
+                    className="max-w-5xl mx-auto"
                 >
                     <motion.h2
                         variants={itemVariants}
@@ -50,53 +66,52 @@ function About() {
                         About Me
                     </motion.h2>
 
-                    <motion.div
-                        variants={itemVariants}
-                        className="bg-slate-950 rounded-2xl p-8 md:p-12 border border-slate-800"
-                    >
-                        <motion.p
-                            variants={itemVariants}
-                            className="text-lg text-slate-300 leading-relaxed mb-6"
-                        >
-                            I'm a <span className="text-indigo-400 font-semibold">Software Engineering student</span> at
-                            Asia Pacific University with experience across R&amp;D, e-commerce, and industrial
-                            internship work, where I've contributed to system design, mobile application migration,
-                            and web development.
-                        </motion.p>
-
-                        <motion.p
-                            variants={itemVariants}
-                            className="text-lg text-slate-300 leading-relaxed mb-6"
-                        >
-                            During my internship at <span className="text-indigo-400 font-semibold">Kloudius Services</span>,
-                            I migrated React Native TV applications to Amazon's Vega OS platform and built a
-                            production-grade UI kit. I currently serve as{' '}
-                            <span className="text-indigo-400 font-semibold">Scrum Master</span> for APCentral, APU's
-                            Centre of Technology &amp; Innovation R&amp;D project, where I oversee project progress and
-                            facilitate team collaboration across cross-functional teams.
-                        </motion.p>
-
-                        <motion.p
-                            variants={itemVariants}
-                            className="text-lg text-slate-300 leading-relaxed mb-10"
-                        >
-                            I earned <span className="text-indigo-400 font-semibold">2nd place in the Joget NextGen
-                            Hackathon 2024</span> and bring the same drive to scalable system design, cross-platform
-                            development, and team collaboration in every project I take on.
-                        </motion.p>
-
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                        {/* Left: intro + stats */}
                         <motion.div
                             variants={itemVariants}
-                            className="grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-slate-800 pt-8"
+                            className="lg:col-span-2 bg-slate-950 rounded-2xl p-8 border border-slate-800 flex flex-col justify-between"
                         >
-                            {stats.map((stat, index) => (
-                                <div key={index} className="text-center">
-                                    <div className="text-3xl font-bold text-indigo-400 mb-1">{stat.value}</div>
-                                    <div className="text-slate-400 text-sm">{stat.label}</div>
-                                </div>
-                            ))}
+                            <div>
+                                <span className="text-xs font-semibold tracking-wide uppercase text-indigo-400">
+                                    Who I Am
+                                </span>
+                                <p className="text-lg text-slate-300 leading-relaxed mt-3">
+                                    A Software Engineering student at Asia Pacific University with hands-on
+                                    experience across R&amp;D, e-commerce, and industrial internship work —
+                                    spanning system design, mobile application migration, and web development.
+                                </p>
+                            </div>
+
+                            <div className="mt-10 divide-y divide-slate-800 border-t border-slate-800">
+                                {stats.map((stat, index) => (
+                                    <div key={index} className="flex items-center justify-between py-4">
+                                        <span className="text-slate-400 text-sm">{stat.label}</span>
+                                        <span className="text-2xl font-bold text-white">{stat.value}</span>
+                                    </div>
+                                ))}
+                            </div>
                         </motion.div>
-                    </motion.div>
+
+                        {/* Right: highlight rows */}
+                        <div className="lg:col-span-3 flex flex-col gap-6">
+                            {highlights.map((item, index) => (
+                                <motion.div
+                                    key={index}
+                                    variants={itemVariants}
+                                    className="bg-slate-950 rounded-2xl p-8 border border-slate-800 flex gap-6"
+                                >
+                                    <span className="text-3xl font-bold text-slate-700 leading-none select-none">
+                                        {item.index}
+                                    </span>
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                                        <p className="text-slate-400 text-sm leading-relaxed">{item.text}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
                 </motion.div>
             </div>
         </section>
