@@ -56,7 +56,7 @@ function Hero() {
                                 Software Engineering student with hands-on experience in R&amp;D, e-commerce, and
                                 industrial internship work spanning system design, mobile application migration, and
                                 web development. Recently migrated React Native TV applications to Amazon's Vega OS
-                                platform and built a production-grade UI kit at Kloudius Services. 2nd place winner,
+                                platform and built a production-grade UI kit at Kloudius Services. 1st Runner-up,
                                 Joget NextGen Hackathon 2024.
                             </p>
 

@@ -137,7 +137,7 @@ function Achievements() {
                             {/* Text Content Right */}
                             <div className="bg-slate-900 rounded-2xl p-8 border border-slate-800">
                                 <span className="text-xs font-semibold tracking-wide uppercase text-indigo-400">
-                                    2nd Place Winner
+                                    1st Runner-up
                                 </span>
                                 <h3 className="text-2xl font-bold text-white mt-2 mb-2">
                                     Joget NextGen Hackathon 2024

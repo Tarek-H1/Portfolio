@@ -28,7 +28,7 @@ function About() {
         {
             index: '03',
             title: 'Recognition',
-            text: "I earned 2nd place in the Joget NextGen Hackathon 2024, and graduated Valedictorian of my IGCSE class — a track record of academic excellence and hands-on delivery.",
+            text: "I earned 1st Runner-up in the Joget NextGen Hackathon 2024, and graduated Valedictorian of my IGCSE class — a track record of academic excellence and hands-on delivery.",
         },
     ];
 
